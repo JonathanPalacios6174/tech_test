@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "On Chain Balance";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@if (ViewBag.Balance != null)
+{
+    <p>Balance en cadena: @ViewBag.Balance SATS</p>
+}
+else if (ViewBag.ErrorMessage != null)
+{
+    <p style="color:red;">@ViewBag.ErrorMessage</p>
+}
+else
+{
+    <p>Por favor, ingresa una dirección.</p>
+}
+
+<form method="get" action="@Url.Action("OnChainBalance")">
+    <label for="address">Dirección:</label>
+    <input type="text" id="address" name="address" />
+    <input type="submit" value="Obtener Balance" />
+</form>

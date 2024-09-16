@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Mempool Balance";
+}
+
+<h2>Mempool Balance</h2>
+
+<form method="get" action="@Url.Action("MempoolBalance")">
+    <label for="address">Dirección:</label>
+    <input type="text" id="address" name="address" />
+    <input type="submit" value="Obtener Balance" />
+</form>
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.ErrorMessage
+    </div>
+}
+else if (ViewBag.Balance != null)
+{
+    <div class="alert alert-success">
+        <strong>Balance:</strong> @ViewBag.Balance
+    </div>
+}
+else
+{
+    <div class="alert alert-info">
+        Por favor, ingresa una dirección y presiona "Obtener Balance".
+    </div>
+}
